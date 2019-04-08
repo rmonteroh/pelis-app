@@ -1,11 +1,11 @@
 <ion-content>
   <ion-label class="titulo"><h1>{{ pelicula.title }}</h1></ion-label>
-  <img [src]="pelicula.backdrop_path | img" alt="imagen" *ngIf="pelicula.backdrop_path">
+  <img class="oscurecer" [src]="pelicula.backdrop_path | img" alt="imagen" >
   <ion-grid >
     <ion-row>
       <ion-col size="4" class="poster-detalle-sobre" >
         <ion-card class="poster">
-          <img [src]="pelicula.poster_path | img" alt="imagen" *ngIf="pelicula.poster_path">
+          <img class="ocupar" [src]="pelicula.poster_path | img" alt="imagen" *ngIf="pelicula.poster_path">
         </ion-card>
       </ion-col>
       <ion-col >
@@ -27,8 +27,8 @@
     <ion-row>
       <ion-col size="12">
         <ion-label>{{ pelicula.overview | slice:0:oculto}}</ion-label>
-        <ion-label color="primary" (click)="oculto = 5000" *ngIf="oculto == 150">...Leer más</ion-label>
-        <ion-label color="primary" (click)="oculto = 150" *ngIf="oculto > 150">Menos</ion-label>
+        <ion-label color="primary" (click)="oculto = 5000" *ngIf="oculto == 150"> ...Leer más</ion-label>
+        <ion-label color="primary" (click)="oculto = 150" *ngIf="oculto > 150"> Menos</ion-label>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -51,8 +51,8 @@
   <ion-slides [options]=slidesOpt>
     <ion-slide *ngFor="let actor of actores" >
       <ion-card class="card-actor">
-        <img *ngIf="!actor.profile_path" src="assets/img/no-avatar.jpg" alt="no-avatar">
-        <img *ngIf="actor.profile_path" [src]="actor.profile_path | img" alt="avatar">
+        <img class="avatar" *ngIf="!actor.profile_path" src="assets/img/no-avatar.jpg" alt="no-avatar">
+        <img class="avatar" *ngIf="actor.profile_path" [src]="actor.profile_path | img" alt="avatar">
         <ion-label class="actor-name">{{actor.name}}</ion-label>
       </ion-card>
     </ion-slide>

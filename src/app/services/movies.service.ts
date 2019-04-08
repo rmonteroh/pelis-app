@@ -13,6 +13,13 @@ export class MoviesService {
 private popularesPage = 0;
   constructor(private http: HttpClient) { }
 
+  private makeQuery<T>(query: string) {
+    query = URL + query;
+    query += `&api_key=${apiKey}&language=es&include_image_language=es`;
+    console.log(query);
+    return this.http.get<T>(query);
+  }
+
   // Url completa de la api moviedb
   // tslint:disable-next-line:max-line-length
   // https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2019-01-01&primary_release_date.lte=2019-01-30&language=es&include_image_language=es&api_key=ab447e64065a4c8a7a826a62eb951942
@@ -53,10 +60,9 @@ private popularesPage = 0;
     return this.makeQuery<ActoresDetalle>(query);
   }
 
-  private makeQuery<T>(query: string) {
-    query = URL + query;
-    query += `&api_key=${apiKey}&language=es&include_image_language=es`;
-    console.log(query);
-    return this.http.get<T>(query);
+  buscarPelicula(name: string) {
+    const query = `/search/movie?query=${name}`;
+    return this.makeQuery<PeliculaDetalle>(query);
   }
+
 }

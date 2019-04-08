@@ -12,6 +12,7 @@
     color: white;
     background-color: red;
     padding: 5px 5px 40px 5px;
+    z-index: 9;
 
 
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
@@ -26,6 +27,10 @@
     top: 28px;
     left: 5px;
 }
+ .oscurecer{
+     filter: brightness(0.7);
+     width: 100%;
+ }
 
 .card-actor {
     height: 210px;
@@ -34,4 +39,11 @@
 .actor-name {
     position: relative;
     top:15px;
+}
+.ocupar{
+    min-height: 160px;
+}
+.avatar{
+    height: 156px;
+    width: auto;
 }

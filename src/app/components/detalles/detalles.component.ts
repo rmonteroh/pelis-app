@@ -24,7 +24,6 @@ slidesOpt = {
     this.movieService.getDetallePeli(this.id)
       .subscribe(resp => {
         this.pelicula = resp;
-        console.log('detalles', resp);
       });
     this.movieService.getActoresPeli(this.id)
       .subscribe(resp => {
