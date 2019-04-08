@@ -1,8 +1,5 @@
 <ion-slides pager="true" [options]=" slidesOpt">
-  <!-- <ion-slide *ngFor="let peli of peliculasRecientes">
-    <ion-card>
-      <img [src]="peli.backdrop_path | img">
-    </ion-card>      
-  </ion-slide> -->
-  <app-pelicula *ngFor="let pelicula of peliculasRecientes" [pelicula]="pelicula"></app-pelicula>
+  <ion-slide *ngFor="let pelicula of peliculasRecientes">
+    <app-pelicula  [pelicula]="pelicula"></app-pelicula>
+  </ion-slide>
 </ion-slides>

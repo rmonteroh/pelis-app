@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class Tab1Page implements OnInit {
 
   peliculasRecientes: Pelicula[] = [];
+  populares: Pelicula[] = [];
   imgURI: string = environment.imgUrl;
 
 
@@ -21,12 +22,21 @@ export class Tab1Page implements OnInit {
     this.serviceMovie.getFeatures()
     .subscribe( (resp: PeliculaDB) => {
       this.peliculasRecientes.push( ...resp.results);
-      console.log(this.peliculasRecientes);
     });
+
+    this.getPopulares();
   }
 
-  makeUrlPath(base: string, final: string) {
-    return `${base}${final}`;
+  cargarMas() {
+    this.getPopulares();
+  }
+
+ async getPopulares() {
+    await this.serviceMovie.getPopulares()
+      .subscribe(resp => {
+        const tempArray = [...this.populares, ...resp.results];
+        this.populares = tempArray;
+      });
   }
 
 }

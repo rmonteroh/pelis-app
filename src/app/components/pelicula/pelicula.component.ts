@@ -12,7 +12,6 @@ export class PeliculaComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.pelicula);
   }
 
 }
