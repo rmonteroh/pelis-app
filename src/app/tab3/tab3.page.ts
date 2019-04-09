@@ -27,4 +27,8 @@ export class Tab3Page implements OnInit {
       });
   }
 
+  peliculasPorGenero(generos: Genre[], peliculas: PeliculaDetalle[]) {
+    console.log('holaa');
+  }
+
 }
