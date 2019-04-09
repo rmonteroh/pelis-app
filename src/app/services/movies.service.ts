@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { PeliculaDB, PeliculaDetalle, ActoresDetalle } from '../interfaces/movies';
+import { PeliculaDB, PeliculaDetalle, ActoresDetalle, Genre } from '../interfaces/movies';
 
 const URL = environment.url;
 const apiKey = environment.apiKey;
@@ -63,6 +63,11 @@ private popularesPage = 0;
   buscarPelicula(name: string) {
     const query = `/search/movie?query=${name}`;
     return this.makeQuery<PeliculaDetalle>(query);
+  }
+
+  getGeneros() {
+    const query = `/genre/movie/list?a=1`;
+    return this.makeQuery<Genre[]>(query);
   }
 
 }

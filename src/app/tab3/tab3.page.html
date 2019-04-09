@@ -1,9 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Three
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content></ion-content>
+<ion-content padding>
+    <ion-grid fixed>
+        <ion-row>
+          <ion-col>
+            <h3>Peliculas Favoritas</h3>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <app-slideshow-posters [peliculas] = "dataLocal.peliculas" ></app-slideshow-posters>
+</ion-content>

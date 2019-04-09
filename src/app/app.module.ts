@@ -12,6 +12,9 @@ import { AppComponent } from './app.component';
 // Para hacer peticiones http.
 import { HttpClientModule } from '@angular/common/http';
 
+// Storage
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -19,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
