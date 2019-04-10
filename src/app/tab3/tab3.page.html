@@ -1,10 +1,10 @@
 <ion-content padding>
-    <ion-grid fixed>
+    <ion-grid fixed *ngFor="let item of pelisPorGenero" >
         <ion-row>
-          <ion-col>
-            <h3>Peliculas Favoritas</h3>
+          <ion-col *ngIf="item.pelis.length != 0">
+            <h3>{{item.genero}}</h3>
           </ion-col>
         </ion-row>
+        <app-slideshow-posters [peliculas] = "item.pelis" *ngIf="item.pelis.length != 0"></app-slideshow-posters>
       </ion-grid>
-      <app-slideshow-posters [peliculas] = "dataLocal.peliculas" ></app-slideshow-posters>
 </ion-content>

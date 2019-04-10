@@ -8,7 +8,7 @@ import { MoviesService } from '../services/movies.service';
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page implements OnInit {
+export class Tab3Page {
   peliculas: PeliculaDetalle[] = [];
   generos: Genre[] = [];
   pelisPorGenero: PelisPerGenre[] = [];
@@ -18,17 +18,24 @@ export class Tab3Page implements OnInit {
     private dataMovies: MoviesService
     ) {}
 
-  ngOnInit() {
-    console.log('favoritos');
-    this.dataLocal.cargarPeliculas();
-    this.dataMovies.getGeneros()
-      .subscribe(resp => {
-        this.generos = resp.genres;
-      });
+    // Ciclo de vida de los componentes en ionic, se ejecuta cada ves k entras al componente.
+  async ionViewWillEnter() {
+    this.peliculas = await this.dataLocal.cargarPeliculas();
+    this.generos = await this.dataMovies.getGeneros();
+    console.log(this.generos);
+    this.peliculasPorGenero(this.generos, this.peliculas);
   }
 
   peliculasPorGenero(generos: Genre[], peliculas: PeliculaDetalle[]) {
-    console.log('holaa');
+    generos.forEach(genero => {
+      this.pelisPorGenero.push({
+        genero: genero.name,
+        pelis: peliculas.filter(pelis => {
+          return pelis.genres.find(genre => genre.id === genero.id);
+        })
+      });
+    });
+    console.log('detalles', this.pelisPorGenero);
   }
 
 }

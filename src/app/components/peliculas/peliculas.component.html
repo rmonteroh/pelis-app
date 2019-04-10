@@ -1,5 +1,5 @@
 <ion-slides pager="true" [options]=" slidesOpt">
-  <ion-slide *ngFor="let pelicula of peliculasRecientes">
+  <ion-slide mode="md" *ngFor="let pelicula of peliculasRecientes">
     <app-pelicula  [pelicula]="pelicula"></app-pelicula>
   </ion-slide>
 </ion-slides>
