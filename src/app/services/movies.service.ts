@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { PeliculaDB, PeliculaDetalle, ActoresDetalle, Genre } from '../interfaces/movies';
-import { generateKeyPairSync } from 'crypto';
-import { resolve } from 'path';
+/* import { generateKeyPairSync } from 'crypto';
+import { resolve } from 'path'; */
 
 const URL = environment.url;
 const apiKey = environment.apiKey;
